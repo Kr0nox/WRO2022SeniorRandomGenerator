@@ -12,22 +12,24 @@ function timerButtonPressed() {
         timerRunning = !timerRunning;
         if (timerRunning) {
             if (curTimer >= timerStart) {
-                // Countdow
+                // Countdown
             }
-            timer();
+            setTimeout(timer, 1000);
         }
     }
-
 
     updateTimerButton();
 }
 
 function timer() {
-    if (timerRunning && curTimer > 0) {
+    if (timerRunning) {
         curTimer = curTimer - 1;
         setTimer();
+    }
+    if (curTimer > 0) {
         setTimeout(timer, 1000);
     } else {
+        // Timer is done
         updateTimerButton();
     }
 }

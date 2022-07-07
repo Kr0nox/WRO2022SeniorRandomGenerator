@@ -20,4 +20,5 @@ button {
     height: 10vh;
     width: 10vw;
     font-size: min(4vh, 2vw);
+    border-radius: 1vh;
 }
