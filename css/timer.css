@@ -1,0 +1,23 @@
+#Timer {
+    text-align: center;
+    font-size: 10vh;
+    font-weight: bold;
+}
+
+.BtnLeft {
+
+    text-align: right;
+}
+
+.BtnRight {
+    text-align: left;
+}
+
+button {
+    background-color: #baa011;
+    color: #fff;
+    border: none;
+    height: 10vh;
+    width: 10vw;
+    font-size: min(4vh, 2vw);
+}
