@@ -1,6 +1,3 @@
-.Object {
-    position: absolute;
-}
 
 #GameField {
     position: relative;
@@ -17,10 +14,14 @@
     margin-right: auto;
 }
 
+.Object {
+    position: absolute;
+    border: 0.4vh solid black;
+}
+
 .Block {
     height: 3vh;
     width: 3vh;
-    border: 0.4vh solid black;
 }
 
 .LBB {
@@ -85,5 +86,71 @@
 
 .LBkR {
     margin-right: 61.63vh;
+    right: 0;
+}
+
+.PHor {
+    width: 4.5vh;
+    height: 3vh;
+}
+
+.PVer {
+    width: 3vh;
+    height: 4.5vh;
+}
+
+.PNW {
+    margin-top: 16.5vh;
+    margin-left: 52.85vh;
+    top: 0;
+    left: 0;
+}
+
+.PY {
+    margin-top: 8vh;
+    margin-left: 35.3vh;
+    top: 0;
+    left: 0;
+}
+
+.PNE {
+    margin-top: 27vh;
+    margin-right: 53.35vh;
+    top: 0;
+    right: 0;
+}
+
+.PG {
+    margin-top: 7.2vh;
+    margin-right: 35.3vh;
+    top: 0;
+    right: 0;
+}
+
+.PSW {
+    margin-bottom: 19vh;
+    margin-left: 56vh;
+    bottom: 0;
+    left: 0;
+}
+
+.PB {
+    margin-bottom: 14.5vh;
+    margin-left: 36vh;
+    bottom: 0;
+    left: 0;
+}
+
+.PSE {
+    margin-bottom: 18.5vh;
+    margin-right: 50.5vh;
+    bottom: 0;
+    right: 0;
+}
+
+.PR {
+    margin-bottom: 4.5vh;
+    margin-right: 36.5vh;
+    bottom: 0;
     right: 0;
 }
