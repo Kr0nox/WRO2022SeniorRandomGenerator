@@ -1,0 +1,27 @@
+html, body, table {
+    height: 100%;
+    margin: 0;
+    font-family: "Arial Rounded MT Bold", sans-serif;
+}
+
+#main {
+    width: 100%;
+}
+
+#SpacerTop {
+    display: block;
+    height: 5vh;
+}
+
+#GameFieldHolder {
+    height: 70vh;
+}
+
+
+#TimerHolder {
+    width: 100vw;
+    height: 22vh;
+}
+
+
+

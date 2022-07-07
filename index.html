@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WRO 2022 Senior</title>
+
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div id="Main">
+        <div id="SpacerTop"></div>
+        <div id="GameFieldHolder">
+            <div id ="GameFieldFrame">
+                <img src="sources/WRO2022-RM-Senior-Spielfeldmatte_org-1.jpg" id="GameField">
+
+                <div class="Object Block LaundryBlock LBT LBL"></div>
+                <div class="Object Block LaundryBlock LBT LBR"></div>
+                <div class="Object Block LaundryBlock LBB LBL"></div>
+                <div class="Object Block LaundryBlock LBB LBR"></div>
+
+                <div class="Object Block RoomBlock RBT RBL"></div>
+                <div class="Object Block RoomBlock RBT RBR"></div>
+                <div class="Object Block RoomBlock RBB RBL"></div>
+                <div class="Object Block RoomBlock RBB RBR"></div>
+
+                <div class="Object LaundryBasket LBkL"></div>
+                <div class="Object LaundryBasket LBkC"></div>
+                <div class="Object LaundryBasket LBkR"></div>
+            </div>
+        </div>
+        <table id="TimerHolder"><tr>
+            <td class="BtnLeft"><button id="TimerControlButton" onclick="timerButtonPressed()"> START </button></td>
+            <td id="Timer"></td>
+            <td class="BtnRight"><button id="TimerResetButton" onclick="reset()"> RESET </button></td>
+        </tr></table>
+    </div>
+
+    <script src="js/gameField.js"></script>
+    <script src="js/timer.js"></script>
+
+</body>
+</html>
