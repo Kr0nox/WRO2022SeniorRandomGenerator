@@ -1,0 +1,89 @@
+.Object {
+    position: absolute;
+}
+
+#GameField {
+    position: relative;
+    height: 66vh;
+    border: 2vh solid #302822;
+}
+
+#GameFieldHolder {
+    width: fit-content;
+    height: fit-content;
+
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.Block {
+    height: 3vh;
+    width: 3vh;
+    border: 0.4vh solid black;
+}
+
+.LBB {
+    margin-bottom: 17.1vh;
+    bottom: 0;
+}
+
+.LBT {
+    margin-top: 17.1vh;
+    top: 0;
+}
+
+.LBL {
+    margin-left: 24.8vh;
+    left: 0;
+}
+
+.LBR {
+    margin-right: 24.8vh;
+    right: 0
+}
+
+.RBB {
+    margin-bottom: 22.2vh;
+    bottom: 0;
+}
+
+.RBT {
+    margin-top: 22.2vh;
+    top:0
+}
+
+.RBL {
+    margin-left: 26.8vh;
+    left: 0;
+}
+
+.RBR {
+    margin-right: 26.8vh;
+    right: 0;
+}
+
+.LaundryBasket {
+    width: 4.2vh;
+    height: 4.2vh;
+    bottom: 0;
+    margin-bottom: 5.2vh;
+    border: 0.4vh solid black;
+}
+
+.LBkC {
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+}
+
+.LBkL {
+    margin-left: 61.63vh;
+    left: 0;
+}
+
+.LBkR {
+    margin-right: 61.63vh;
+    right: 0;
+}
