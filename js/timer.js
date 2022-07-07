@@ -4,10 +4,6 @@ let timerRunning = false;
 
 let timerText = document.getElementById("Timer");
 let timerButton = document.getElementById("TimerControlButton");
-let resetButton = document.getElementById("TimerResetButton");
-
-reset();
-
 
 function timerButtonPressed() {
     if (curTimer <= 0) {
