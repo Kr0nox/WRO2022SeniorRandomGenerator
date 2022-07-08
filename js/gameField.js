@@ -9,11 +9,14 @@ let laundryBlocks = document.getElementsByClassName("LaundryBlock");
 let roomBlocks = document.getElementsByClassName("RoomBlock");
 let persons = document.getElementsByClassName("Person");
 
+let selectedObject = null;
+
 function generate() {
     colorObjects(laundryBasketColors, laundryBaskets);
     colorObjects(laundryBlockColors, laundryBlocks);
     colorObjects(roomColors, roomBlocks);
     colorObjects(figureColors, persons);
+    selectedObject = null;
 }
 
 function colorObjects(colors, objects) {
@@ -46,8 +49,6 @@ function shuffleArray(array) {
     }
     return arr
 }
-
-let selectedObject = null;
 
 function manipulateObject(element, elements) {
     if (selectedObject == null) {

@@ -4,6 +4,7 @@ let timerRunning = false;
 
 let timerText = document.getElementById("Timer");
 let timerButton = document.getElementById("TimerControlButton");
+let curInterval = -1;
 
 function timerButtonPressed() {
     if (curTimer <= 0) {
@@ -14,7 +15,9 @@ function timerButtonPressed() {
             if (curTimer >= timerStart) {
                 // Countdown
             }
-            setTimeout(timer, 1000);
+            curInterval = setInterval(timer, 1000);
+        } else {
+            window.clearInterval(curInterval);
         }
     }
 
@@ -22,14 +25,13 @@ function timerButtonPressed() {
 }
 
 function timer() {
-    if (timerRunning) {
-        curTimer = curTimer - 1;
-        setTimer();
-    }
-    if (curTimer > 0) {
-        setTimeout(timer, 1000);
-    } else {
+    curTimer = curTimer - 1;
+    setTimer();
+
+    if (curTimer <= 0 || !timerRunning) {
         // Timer is done
+        timerRunning = false;
+        window.clearInterval(curInterval);
         updateTimerButton();
     }
 }
