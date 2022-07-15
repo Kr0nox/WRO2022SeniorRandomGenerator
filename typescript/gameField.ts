@@ -1,3 +1,10 @@
+import {saveCookie, readCookie} from "./cookieManager.js";
+
+const PEOPLE_COOKIE : string = "colorsPeople";
+const LAUNDRY_BLOCKS_COOKIE : string = "colorsLaundryBlocks";
+const LAUNDRY_BASKETS_COOKIE : string = "colorsLaundryBaskets";
+const ROOM_BLOCKS_COOKIE : string = "colorsRoomBlocks";
+
 const laundryBasketColors : string[] = ["#f00", "#202020", "#ff0"];
 const laundryBlockColors: string[] = ["#f00", "#202020", "#ff0", "transparent"];
 const roomColors: string[] = ["#fff", "#fff", "#008200", "#008200"]
@@ -8,28 +15,45 @@ const laundryBlocks : HTMLElement[] = document.getElementsByClassName("LaundryBl
 const roomBlocks : HTMLElement[] = document.getElementsByClassName("RoomBlock") as unknown as HTMLElement[];
 const persons : HTMLElement[] = document.getElementsByClassName("Person") as unknown as HTMLElement[];
 
-let selectedObject : HTMLElement = null;
+let selectedObject : HTMLElement = null as unknown as HTMLElement;
 
-generate();
+load();
 setOnclicksForManipulation();
 
-function generate() : void {
-    colorObjects(laundryBasketColors, laundryBaskets);
-    colorObjects(laundryBlockColors, laundryBlocks);
-    colorObjects(roomColors, roomBlocks);
-    colorObjects(figureColors, persons);
-    selectedObject = null;
+export function generate() : void {
+    saveCookie(LAUNDRY_BASKETS_COOKIE, colorObjects(shuffleColors(laundryBasketColors), laundryBaskets).toString());
+    saveCookie(LAUNDRY_BLOCKS_COOKIE, colorObjects(shuffleColors(laundryBlockColors), laundryBlocks).toString());
+    saveCookie(ROOM_BLOCKS_COOKIE, colorObjects(shuffleColors(roomColors), roomBlocks).toString());
+    saveCookie(PEOPLE_COOKIE, colorObjects(shuffleColors(figureColors), persons).toString());
+    selectedObject = null as unknown as HTMLElement;
 }
 
-function colorObjects(colors:string[], objects:HTMLElement[]) : void {
+function load() : void {
+    let lbasketCol = readCookie(LAUNDRY_BASKETS_COOKIE).split(",");
+    let lblockCol = readCookie(LAUNDRY_BLOCKS_COOKIE).split(",");
+    let rbCol = readCookie(ROOM_BLOCKS_COOKIE).split(",");
+    let pCol = readCookie(PEOPLE_COOKIE).split(",");
+    console.log(pCol)
+    if (lbasketCol.length != laundryBaskets.length || lblockCol.length != laundryBlocks.length
+        || rbCol.length != roomBlocks.length || pCol.length != persons.length) {
+        generate();
+    } else {
+        colorObjects(lbasketCol, laundryBaskets);
+        colorObjects(lblockCol, laundryBlocks);
+        colorObjects(rbCol, roomBlocks);
+        colorObjects(pCol, persons);
+    }
+}
+
+function colorObjects(colors:string[], objects:HTMLElement[]) : string[] {
     if (colors.length !== objects.length) {
-        return;
+        return [];
     }
 
-    let objectColors = shuffleColors(colors);
-    for (let i = 0; i < objectColors.length; i++) {
-        setColor(objects[i], objectColors[i]);
+    for (let i = 0; i < colors.length; i++) {
+        setColor(objects[i], colors[i]);
     }
+    return colors;
 }
 
 function setColor(object:HTMLElement, col:string) : void {
@@ -54,8 +78,10 @@ function shuffleColors(array:string[]) : string[] {
 
 function manipulateObject(element:HTMLElement, elements:HTMLElement[]) : void {
     if (selectedObject == null) {
-        selectedObject = element;
-        selectedObject.style.borderColor = "#900";
+        if (element.style.backgroundColor !== "transparent") {
+            selectedObject = element;
+            selectedObject.style.borderColor = "#900";
+        }
     } else {
         setColor(selectedObject, window.getComputedStyle(selectedObject).backgroundColor);
 
@@ -65,7 +91,7 @@ function manipulateObject(element:HTMLElement, elements:HTMLElement[]) : void {
             setColor(element, temp1);
         }
 
-        selectedObject = null;
+        selectedObject = null as unknown as HTMLElement;
     }
 }
 

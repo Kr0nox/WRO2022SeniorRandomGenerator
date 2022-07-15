@@ -1,12 +1,17 @@
+import {generate} from "./gameField.js";
+
 let timerStart : number = 120;
 let curTimer : number = timerStart;
 let timerRunning : boolean = false;
 
-let timerText : HTMLElement = document.getElementById("Timer");
-let timerButton : HTMLElement = document.getElementById("TimerControlButton");
+let timerText : HTMLElement = document.getElementById("Timer") as HTMLElement;
+let timerButton : HTMLButtonElement = document.getElementById("TimerControlButton") as HTMLButtonElement;
+let resetButton : HTMLButtonElement = document.getElementById("TimerResetButton") as HTMLButtonElement;
 let curInterval : number = -1;
 
-reset();
+resetTimer();
+timerButton.addEventListener('click', timerButtonPressed);
+resetButton.addEventListener('click', reset);
 
 function timerButtonPressed() : void {
     if (curTimer <= 0) {
@@ -16,8 +21,7 @@ function timerButtonPressed() : void {
         if (timerRunning) {
             if (curTimer >= timerStart) {
                 // Countdown
-            }
-            curInterval = setInterval(timer, 1000);
+            }curInterval = setInterval(timer, 1000);
         } else {
             window.clearInterval(curInterval);
         }
@@ -39,7 +43,11 @@ function timer() : void {
 }
 
 function reset() : void {
-    //generate();
+    generate();
+    resetTimer()
+}
+
+function resetTimer() : void {
     window.clearInterval(curInterval);
     timerRunning = false;
     curTimer = timerStart;
