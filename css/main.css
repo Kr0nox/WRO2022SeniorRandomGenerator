@@ -1,11 +1,17 @@
-html, body, table {
+html, body {
     height: 100%;
     margin: 0;
     font-family: "Arial Rounded MT Bold", sans-serif;
+
+    text-align: center;
+    align-content: center;
+    background: #eee;
 }
 
 #main {
     width: 100%;
+    text-align: center;
+    align-content: center;
 }
 
 #SpacerTop {
@@ -13,14 +19,72 @@ html, body, table {
     height: 5vh;
 }
 
-#GameFieldHolder {
-    height: 70vh;
-}
-
-
 #TimerHolder {
     width: 100vw;
     height: 22vh;
+    margin-left: auto;
+    margin-right: auto;
+    position: fixed;
+    bottom: 5vh;
+    text-align: center;
+    align-content: center;
+    left: 0;
+    right: 0;
+}
+
+
+/* Phone */
+#GameFieldHolder {
+    height: 70vh;
+    text-align: center;
+    align-content: center;
+    zoom: 100%;
+}
+
+.Horizontal {
+    visibility: hidden;
+    position: fixed;
+}
+
+.Vertical {
+    visibility: visible;
+    position: static;
+}
+
+/* Tablet Horizontal */
+@media screen and (min-aspect-ratio: 1/1) {
+    .Vertical {
+        visibility: hidden;
+        position: fixed;
+    }
+
+    .Horizontal {
+        visibility: visible;
+        position: static;
+    }
+
+    #GameFieldHolder {
+        zoom: 80%;
+    }
+
+}
+
+/* Computer / Rotated Tablet */
+@media screen and (min-aspect-ratio: 3/2) {
+    .Vertical {
+        visibility: hidden;
+        position: fixed;
+    }
+
+    .Horizontal {
+        visibility: visible;
+        position: static;
+    }
+
+    #GameFieldHolder {
+        zoom: 100%;
+    }
+
 }
 
 
