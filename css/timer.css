@@ -1,6 +1,5 @@
 #Timer {
     text-align: center;
-    font-size: 10vh;
     font-weight: bold;
 }
 
@@ -13,12 +12,34 @@
     text-align: left;
 }
 
-button {
+.TimerBtn {
     background-color: #baa011;
     color: #fff;
     border: none;
-    height: 10vh;
-    width: 10vw;
-    font-size: min(4vh, 2vw);
     border-radius: 1vh;
+}
+
+@media screen {
+    .TimerBtn {
+        height: 15vw;
+        width: 30vw;
+        font-size: 5vw;
+    }
+
+    #Timer {
+        font-size: 13vw;
+    }
+}
+
+/* Horizontal */
+@media screen and (min-aspect-ratio: 1/1) {
+    .TimerBtn {
+        height: 10vh;
+        width: 10vw;
+        font-size: min(4vh, 2vw);
+    }
+
+    #Timer {
+        font-size: 10vh;
+    }
 }
