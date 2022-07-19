@@ -1,20 +1,58 @@
 const ALLOWS_COOKIES : string = "allowsCookies";
 
-let allowsCookies : boolean = readCookie(ALLOWS_COOKIES, true).toLowerCase() === "true";
+let allowsCookies : boolean = true;
+allowsCookies = getCookiesAllowed();
 
-export function saveCookie(key:string, value:string, expires:number = -1, override:boolean = false) : void {
-    if (!override && !allowsCookies) {
+const btnAllow = document.getElementById("BtnAllow") as HTMLElement;
+const btnDecline = document.getElementById("BtnDecline") as HTMLElement;
+
+btnAllow.addEventListener('click', hideCookieWindow);
+btnDecline.addEventListener('click', hideCookieWindow);
+btnAllow.addEventListener('click', function () {
+   setAllowCookies(true);
+});
+btnDecline.addEventListener('click', function () {
+   setAllowCookies(false);
+});
+
+function getCookiesAllowed() : boolean {
+    if (!navigator.cookieEnabled) {
+        return false;
+    }
+    allowsCookies = true;
+    let c = readCookie(ALLOWS_COOKIES);
+    allowsCookies = readCookie(ALLOWS_COOKIES) == "true";
+    if (c == "true") {
+        return true;
+    } else if (c == "false") {
+        return false;
+    } else {
+        showCookieWindow();
+        return false;
+    }
+}
+
+function hideCookieWindow() {
+    (document.getElementById("CookieWindow") as HTMLElement).style.visibility = "hidden";
+}
+
+function showCookieWindow() {
+    (document.getElementById("CookieWindow") as HTMLElement).style.visibility = "visible";
+}
+
+export function saveCookie(key:string, value:string, expires:number = -1) : void {
+    if (!allowsCookies) {
         return;
     }
     let expiration : string = "";
     if (expires >= 0) {
-        expiration = "; expires=" + new Date(expires);
+        expiration = ";expires=" + new Date(expires).toUTCString() + ";path=/";
     }
     document.cookie = key + "=" + value + expiration;
 }
 
-export function readCookie(key:string, override:boolean = false) : string {
-    if (!override && !allowsCookies) {
+export function readCookie(key:string) : string {
+    if (!allowsCookies) {
         return "";
     }
     let allCookies : string[] = document.cookie.split(";");
@@ -32,13 +70,9 @@ export function readCookie(key:string, override:boolean = false) : string {
 
 function setAllowCookies(value:boolean) : void {
     allowsCookies = value
-    saveCookie(ALLOWS_COOKIES, value + "", addDays(Date.now(), 10), true);
+    saveCookie(ALLOWS_COOKIES, value ? "true" : "false", addDays(Date.now(), 10));
 }
 
-
-
 function addDays(date : number, days : number) : number {
-    let result = new Date(date);
-    result.setDate(result.getDate() + days);
-    return result.getDate();
+    return date + days * 86400000;
 }
