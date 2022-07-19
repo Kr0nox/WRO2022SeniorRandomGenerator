@@ -41,20 +41,28 @@
             </div>
         </div>
         <table id="TimerHolder"><tr>
-            <td class="BtnLeft"><button id="TimerControlButton"> START </button></td>
+            <td class="BtnLeft"><button class="TimerBtn" id="TimerControlButton"> START </button></td>
             <td id="Timer"></td>
-            <td class="BtnRight" ><button id="TimerResetButton"> RESET </button></td>
+            <td class="BtnRight" ><button class="TimerBtn" id="TimerResetButton"> RESET </button></td>
         </tr></table>
     </div>
 
     <div id="CookieWindow">
-        <p>Bla bla bla</p>
-        <p><button>Allow</button><button>Decline</button></p>
+        <p id="CookieText">
+            This side uses cookies to allow a better use experience. Please accept or decline the usage of cookies.
+            <a>Cookie Policy</a> & <a>Privacy Policy</a>
+        </p>
+        <p>
+            <button class="CookieBtn" id="BtnAllow">Allow</button>
+            <button class="CookieBtn" id="BtnDecline">Decline</button>
+        </p>
     </div>
 
     <script type="module" src="typescript/cookieManager.js"></script>
     <script type="module" src="typescript/gameField.js"></script>
     <script type="module" src="typescript/timer.js"></script>
 
+    <div id="Footer">BrickFire © 2022 - <a href="https://github.com/Kr0nox/WRO2022Senior">GitHub Repo</a> -
+        <a href="https://www.instagram.com/team_brickfire/?hl=de">Instagram</a> - <a>Policies</a></div>
 </body>
 </html>
