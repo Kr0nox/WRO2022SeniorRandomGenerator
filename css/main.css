@@ -32,6 +32,14 @@ html, body {
     right: 0;
 }
 
+#CookieWindow {
+    width: 100%;
+    background: purple;
+    height: 20vh;
+    position: absolute;
+    bottom: 0;
+}
+
 
 /* Phone */
 #GameFieldHolder {
