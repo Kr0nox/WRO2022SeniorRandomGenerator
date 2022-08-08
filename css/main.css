@@ -58,14 +58,18 @@ html, body {
 }
 
 #CookieText a {
-    color: #02c;
-    text-decoration: underline;
 }
 
 #Footer {
     position: absolute;
     width: 100vw;
     bottom: 10px;
+}
+
+#Footer a {
+
+    color: #017;
+    text-decoration: none;
 }
 
 /* Phone */
