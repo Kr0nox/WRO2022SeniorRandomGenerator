@@ -1,11 +1,17 @@
-html, body, table {
+html, body {
     height: 100%;
     margin: 0;
     font-family: "Arial Rounded MT Bold", sans-serif;
+
+    text-align: center;
+    align-content: center;
+    background: #eee;
 }
 
 #main {
     width: 100%;
+    text-align: center;
+    align-content: center;
 }
 
 #SpacerTop {
@@ -13,14 +19,140 @@ html, body, table {
     height: 5vh;
 }
 
-#GameFieldHolder {
-    height: 70vh;
-}
-
-
 #TimerHolder {
     width: 100vw;
     height: 22vh;
+    margin-left: auto;
+    margin-right: auto;
+    position: fixed;
+    bottom: 5vh;
+    text-align: center;
+    align-content: center;
+    left: 0;
+    right: 0;
+}
+
+#CookieWindow {
+    width: 100%;
+    background: #bbb;
+    height: 20vh;
+    position: absolute;
+    bottom: 0;
+    z-index: 10000;
+    visibility: hidden;
+}
+
+.CookieBtn {
+    border: none;
+    border-radius: 1vh;
+}
+
+#BtnAllow {
+    background-color: #080;
+    color: #fff;
+}
+
+#BtnDecline {
+    color: #fff;
+    background-color: #999;
+}
+
+#CookieText a {
+}
+
+#Footer {
+    position: absolute;
+    width: 100vw;
+    bottom: 10px;
+}
+
+#Footer a {
+
+    color: #017;
+    text-decoration: none;
+}
+
+/* Phone */
+@media screen {
+    #GameFieldHolder {
+        height: 70vh;
+        text-align: center;
+        align-content: center;
+        zoom: 100%;
+    }
+
+    .Horizontal {
+        visibility: hidden;
+        position: fixed;
+    }
+
+    .Vertical {
+        visibility: visible;
+        position: static;
+    }
+
+    .CookieBtn {
+        height: 6vh;
+        width: 20vw;
+        font-size: min(6vh, 3vw);
+        margin-left: 5vw;
+        margin-right: 5vw;
+    }
+
+    #CookieText {
+        margin-left: 1vh;
+        margin-right: 1vh;
+        font-size: 2vh;
+    }
+}
+
+
+/* Tablet Horizontal */
+@media screen and (min-aspect-ratio: 1/1) {
+    .Vertical {
+        visibility: hidden;
+        position: fixed;
+    }
+
+    .Horizontal {
+        visibility: visible;
+        position: static;
+    }
+
+    #GameFieldHolder {
+        zoom: 70%;
+    }
+
+    .CookieBtn {
+        height: 6vh;
+        width: 10vw;
+        font-size: min(4vh, 2vw);
+        margin-left: 5vw;
+        margin-right: 5vw;
+    }
+
+    #CookieText {
+        font-size: 2vh;
+    }
+
+}
+
+/* Computer / Rotated Tablet */
+@media screen and (min-aspect-ratio: 3/2) {
+    .Vertical {
+        visibility: hidden;
+        position: fixed;
+    }
+
+    .Horizontal {
+        visibility: visible;
+        position: static;
+    }
+
+    #GameFieldHolder {
+        zoom: 100%;
+    }
+
 }
 
 

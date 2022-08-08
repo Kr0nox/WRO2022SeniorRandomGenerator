@@ -1,8 +1,6 @@
 
-#GameField {
+.GameField {
     position: relative;
-    height: 66vh;
-    border: 2vh solid #302822;
     border-radius: 0.8vh;
 }
 
@@ -21,137 +19,327 @@
     border-radius: 0.35vh;
 }
 
-.Block {
-    height: 3vh;
-    width: 3vh;
+:root {
+    --vertical-laundry-block-distance-long : 8vh;
+    --vertical-laundry-block-distance-short: 11.5vh;
+    --vertical-room-block-distance-long: 10.8vh;
+    --vertical-room-block-distance-short: 12.9vh;
+    --vertical-laundry-basket-distance-long: 2.5vh;
+    --vertical-laundry-basket-distance-short: 30.66vh;
+
+    --vertical-block-size: 2vh;
+    --vertical-laundry-basket-size: 2.1vh;
+
+    --vertical-person-width: 2.25vh;
+    --vertical-person-height: 1.5vh;
+
+    --horizontal-laundry-block-distance-long : 17.1vh;
+    --horizontal-laundry-block-distance-short: 24.8vh;
+    --horizontal-room-block-distance-long: 22.2vh;
+    --horizontal-room-block-distance-short: 26.8vh;
+    --horizontal-laundry-basket-distance-long: 5.2vh;
+    --horizontal-laundry-basket-distance-short: 61.63vh;
+
+    --horizontal-block-size: 4vh;
+    --horizontal-laundry-basket-size: 4.2vh;
+
+    --horizontal-person-width: 4.5vh;
+    --horizontal-person-height: 3vh;
+
+
 }
 
-.LBB {
-    margin-bottom: 17.1vh;
-    bottom: 0;
+/* Phone */
+@media screen {
+    .GameField {
+        height: 68vh;
+        border: 1vh solid #302822;
+    }
+
+    .Block {
+        height: var(--vertical-block-size);
+        width: var(--vertical-block-size);
+    }
+
+
+    .LBB {
+        margin-left: var(--vertical-laundry-block-distance-long);
+        left: 0;
+    }
+
+    .LBT {
+        margin-right: var(--vertical-laundry-block-distance-long);
+        right: 0;
+    }
+
+    .LBL {
+        margin-bottom: var(--vertical-laundry-block-distance-short);
+        bottom: 0;
+    }
+
+    .LBR {
+        margin-top: var(--vertical-laundry-block-distance-short);
+        top: 0;
+    }
+
+    .RBB {
+        margin-left: var(--vertical-room-block-distance-long);
+        left: 0;
+    }
+
+    .RBT {
+        margin-right: var(--vertical-room-block-distance-long);
+        right:0
+    }
+
+    .RBL {
+        margin-top: var(--vertical-room-block-distance-short);
+        top: 0;
+    }
+
+    .RBR {
+        margin-bottom: var(--vertical-room-block-distance-short);
+        bottom: 0;
+    }
+
+    .LaundryBasket {
+        width: var(--vertical-laundry-basket-size);
+        height: var(--vertical-laundry-basket-size);
+        left: 0;
+        margin-left: var(--vertical-laundry-basket-distance-long);
+    }
+
+    .LBkC {
+        margin-top: auto;
+        margin-bottom: auto;
+        top: 0;
+        bottom: 0;
+    }
+
+    .LBkL {
+        margin-top: var(--vertical-laundry-basket-distance-short);
+        top: 0;
+    }
+
+    .LBkR {
+        margin-bottom: var(--vertical-laundry-basket-distance-short);
+        bottom: 0;
+    }
+
+    .PVer {
+        width: var(--vertical-person-width);
+        height: var(--vertical-person-height);;
+    }
+
+    .PHor {
+        width: var(--vertical-person-height);
+        height: var(--vertical-person-width);
+    }
+
+    .PNW {
+        margin-top: 26vh;
+        margin-right: 8vh;
+        top: 0;
+        right: 0;
+    }
+
+    .PY {
+        margin-top: 17.2vh;
+        margin-right: 4vh;
+        top: 0;
+        right: 0;
+     }
+
+    .PNE {
+        margin-bottom: 26.5vh;
+        margin-right: 13vh;
+        bottom: 0;
+        right: 0;
+    }
+
+    .PG {
+        margin-bottom: 17vh;
+        margin-right: 3.5vh;
+        bottom: 0;
+        right: 0;
+    }
+
+    .PSW {
+        margin-top: 27.8vh;
+        margin-left: 9.8vh;
+        top: 0;
+        left: 0;
+    }
+
+    .PB {
+        margin-top: 18vh;
+        margin-left: 7vh;
+        top: 0;
+        left: 0;
+    }
+
+    .PSE {
+        margin-bottom: 25vh;
+        margin-left: 9vh;
+        bottom: 0;
+        left: 0;
+    }
+
+    .PR {
+        margin-bottom: 18vh;
+        margin-left: 2vh;
+        bottom: 0;
+        left: 0;
+    }
 }
 
-.LBT {
-    margin-top: 17.1vh;
-    top: 0;
+@media screen and (min-aspect-ratio: 1/1) {
+    .GameField {
+        height: 66vh;
+        border: 2vh solid #302822;
+    }
+
+    .Object {
+        margin: auto;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    .Block {
+        height: 3vh;
+        width: 3vh;
+    }
+
+    .LBB {
+        margin-bottom: var(--horizontal-laundry-block-distance-long);
+        bottom: 0;
+    }
+
+    .LBT {
+        margin-top: var(--horizontal-laundry-block-distance-long);
+        top: 0;
+    }
+
+    .LBL {
+        margin-left: var(--horizontal-laundry-block-distance-short);
+        left: 0;
+    }
+
+    .LBR {
+        margin-right: var(--horizontal-laundry-block-distance-short);
+        right: 0
+    }
+
+    .RBB {
+        margin-bottom: var(--horizontal-room-block-distance-long);
+        bottom: 0;
+    }
+
+    .RBT {
+        margin-top: var(--horizontal-room-block-distance-long);
+        top:0
+    }
+
+    .RBL {
+        margin-left: var(--horizontal-room-block-distance-short);
+        left: 0;
+    }
+
+    .RBR {
+        margin-right: var(--horizontal-room-block-distance-short);
+        right: 0;
+    }
+
+    .LaundryBasket {
+        width: var(--horizontal-laundry-basket-size);
+        height: var(--horizontal-laundry-basket-size);
+        bottom: 0;
+        margin-bottom: var(--horizontal-laundry-basket-distance-long);
+    }
+
+    .LBkC {
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+    }
+
+    .LBkL {
+        margin-left: var(--horizontal-laundry-basket-distance-short);
+        left: 0;
+    }
+
+    .LBkR {
+        margin-right: var(--horizontal-laundry-basket-distance-short);
+        right: 0;
+    }
+
+    .PHor {
+        width: var(--horizontal-person-width);
+        height: var(--horizontal-person-height);;
+    }
+
+    .PVer {
+        width: var(--horizontal-person-height);
+        height: var(--horizontal-person-width);
+    }
+
+    .PNW {
+        margin-top: 16.5vh;
+        margin-left: 52.85vh;
+        top: 0;
+        left: 0;
+    }
+
+    .PY {
+        margin-top: 8vh;
+        margin-left: 35.3vh;
+        top: 0;
+        left: 0;
+    }
+
+    .PNE {
+        margin-top: 27vh;
+        margin-right: 53.35vh;
+        top: 0;
+        right: 0;
+    }
+
+    .PG {
+        margin-top: 7.2vh;
+        margin-right: 35.3vh;
+        top: 0;
+        right: 0;
+    }
+
+    .PSW {
+        margin-bottom: 19vh;
+        margin-left: 56vh;
+        bottom: 0;
+        left: 0;
+    }
+
+    .PB {
+        margin-bottom: 14.5vh;
+        margin-left: 36vh;
+        bottom: 0;
+        left: 0;
+    }
+
+    .PSE {
+        margin-bottom: 18.5vh;
+        margin-right: 50.5vh;
+        bottom: 0;
+        right: 0;
+    }
+
+    .PR {
+        margin-bottom: 4.5vh;
+        margin-right: 36.5vh;
+        bottom: 0;
+        right: 0;
+    }
 }
 
-.LBL {
-    margin-left: 24.8vh;
-    left: 0;
-}
-
-.LBR {
-    margin-right: 24.8vh;
-    right: 0
-}
-
-.RBB {
-    margin-bottom: 22.2vh;
-    bottom: 0;
-}
-
-.RBT {
-    margin-top: 22.2vh;
-    top:0
-}
-
-.RBL {
-    margin-left: 26.8vh;
-    left: 0;
-}
-
-.RBR {
-    margin-right: 26.8vh;
-    right: 0;
-}
-
-.LaundryBasket {
-    width: 4.2vh;
-    height: 4.2vh;
-    bottom: 0;
-    margin-bottom: 5.2vh;
-}
-
-.LBkC {
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
-}
-
-.LBkL {
-    margin-left: 61.63vh;
-    left: 0;
-}
-
-.LBkR {
-    margin-right: 61.63vh;
-    right: 0;
-}
-
-.PHor {
-    width: 4.5vh;
-    height: 3vh;
-}
-
-.PVer {
-    width: 3vh;
-    height: 4.5vh;
-}
-
-.PNW {
-    margin-top: 16.5vh;
-    margin-left: 52.85vh;
-    top: 0;
-    left: 0;
-}
-
-.PY {
-    margin-top: 8vh;
-    margin-left: 35.3vh;
-    top: 0;
-    left: 0;
-}
-
-.PNE {
-    margin-top: 27vh;
-    margin-right: 53.35vh;
-    top: 0;
-    right: 0;
-}
-
-.PG {
-    margin-top: 7.2vh;
-    margin-right: 35.3vh;
-    top: 0;
-    right: 0;
-}
-
-.PSW {
-    margin-bottom: 19vh;
-    margin-left: 56vh;
-    bottom: 0;
-    left: 0;
-}
-
-.PB {
-    margin-bottom: 14.5vh;
-    margin-left: 36vh;
-    bottom: 0;
-    left: 0;
-}
-
-.PSE {
-    margin-bottom: 18.5vh;
-    margin-right: 50.5vh;
-    bottom: 0;
-    right: 0;
-}
-
-.PR {
-    margin-bottom: 4.5vh;
-    margin-right: 36.5vh;
-    bottom: 0;
-    right: 0;
-}

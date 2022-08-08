@@ -1,0 +1,7 @@
+{
+  "name": "wro2022_senior_random",
+  "version": "1.0.1",
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  }
+}

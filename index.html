@@ -13,7 +13,8 @@
         <div id="SpacerTop"></div>
         <div id="GameFieldHolder">
             <div id ="GameFieldFrame">
-                <img src="sources/WRO2022-RM-Senior-Spielfeldmatte_org-1.jpg" id="GameField">
+                <img src="sources/WRO2022-RM-Senior-Spielfeldmatte_org-Hor.jpg" class="GameField Horizontal">
+                <img src="sources/WRO2022-RM-Senior-Spielfeldmatte_org-Ver.jpg" class="GameField Vertical">
 
                 <div class="Object Block LaundryBlock LBT LBL"></div>
                 <div class="Object Block LaundryBlock LBT LBR"></div>
@@ -40,21 +41,27 @@
             </div>
         </div>
         <table id="TimerHolder"><tr>
-            <td class="BtnLeft"><button id="TimerControlButton" onclick="timerButtonPressed()"> START </button></td>
+            <td class="BtnLeft"><button class="TimerBtn" id="TimerControlButton"> START </button></td>
             <td id="Timer"></td>
-            <td class="BtnRight"><button id="TimerResetButton" onclick="reset()"> RESET </button></td>
+            <td class="BtnRight" ><button class="TimerBtn" id="TimerResetButton"> RESET </button></td>
         </tr></table>
     </div>
 
-    <script src="js/gameField.js">
-    </script>
-    <script src="js/timer.js">
-    </script>
-    <script>
-        reset();
-        setOnclicksForManipulation();
-    </script>
+    <div id="CookieWindow">
+        <p id="CookieText">
+            This side uses cookies to allow a better use experience. Please accept or decline the usage of cookies.
+        </p>
+        <p>
+            <button class="CookieBtn" id="BtnAllow">Allow</button>
+            <button class="CookieBtn" id="BtnDecline">Decline</button>
+        </p>
+    </div>
 
+    <script type="module" src="typescript/cookieManager.js"></script>
+    <script type="module" src="typescript/gameField.js"></script>
+    <script type="module" src="typescript/timer.js"></script>
 
+    <div id="Footer">BrickFire © 2022 - <a href="https://github.com/Kr0nox/WRO2022SeniorRandomGenerator">GitHub Repo</a> -
+        <a href="https://www.instagram.com/team_brickfire/?hl=de">Instagram</a> - <a href="impressum.html">Impressum</a></div>
 </body>
 </html>
